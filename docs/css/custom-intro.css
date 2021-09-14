@@ -164,11 +164,15 @@ a, a > code {
 }
 
 .remark-slide-content code {
-    font-size: 16px;
+    font-size: 23px;
 }
 
 .remark-slide>.titulo {
   color: #6495ed;
   vertical-align: middle;
   text-align: center;
+}
+
+.destaque {
+  background: #fffb00;
 }
