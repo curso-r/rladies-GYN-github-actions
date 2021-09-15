@@ -325,22 +325,19 @@ em um **servidor do GitHub** e executa os comandos especificados
 
 - Um workflow tem alguns componentes importantes:
 
-  - **Event**: gatilhos que ativam o workflow, podendo ser desde um push ao
-  repositório até uma hora do dia
+  - **Event**: gatilhos que ativam o workflow, podendo ser um push no repositório, um horário/dia definido
   
-  - **Job**: sequências completas de comandos que podem ser executadas
-  paralelamente entre si
+  - **Job**: sequências completas de comandos que podem ser executadas paralelamente entre si
   
   - **Step**: uma tarefa dentro de um job, composta por ações
       
       - **Use**: passos importados de outro repositório (úteis para setup)
   
-  - **Action**: o átomo do workflow, um comando a ser executado pelo "duende
-  mágico"
+  - **Action**: o átomo do workflow, um comando a ser executado pelo "duende mágico"
   
 - Também é comum definir **env**, variáveis de ambiente para o workflow
 
-
+.destaque[será que falar de todos esses conceitos agora não é too much? to pensando em tirar esse slide, pq os mais importantes são explicados depois]
 ---
 
 ## Fluxos de trabalho (workflows)
@@ -394,6 +391,9 @@ Diagrama feito utilizando o site [draw.io](https://draw.io).
   - Executar testes
   
   - Executar um script `.R`
+      - Atualizar um relatório `.Rmd`
+      - Checar um pacote
+      - Entre outros
 
 ---
 
