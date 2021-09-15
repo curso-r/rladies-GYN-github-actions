@@ -491,7 +491,7 @@ Dentro de um pacote, a pasta `R/` só pode ter arquivos R com funções.
 
 - Podemos usar `usethis::use_r("nome-do-arquivo")` para que um arquivo seja criado antes começarmos a escrever uma função.
 
-- Assim que escrevermos/modificarmos alguma função, podemos carregá-las e testá-las manualmente com `devtools::load_all()`
+- Assim que escrevermos/modificarmos alguma função, podemos carregá-las com `devtools::load_all()` e executá-las manualmente
 
 ---
 ## Dependências
