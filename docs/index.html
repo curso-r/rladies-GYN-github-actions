@@ -170,8 +170,72 @@ install.packages(pacotes)
 
 ---
 name: revisao-github
+class: inverse, middle, center
 
-## Revisão: GitHub
+## Revisão sobre Git e GitHub
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="img/meme-git.png" alt="Fonte: &amp;lt;a href='https://www.instagram.com/p/CTxBAC0rv3Z/'&amp;gt;Faxineiro de Dados&amp;lt;/a&amp;gt;" width="40%" /&gt;
+&lt;p class="caption"&gt;Fonte: &lt;a href='https://www.instagram.com/p/CTxBAC0rv3Z/'&gt;Faxineiro de Dados&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+
+
+---
+
+## O que é Git?
+
+- Git é um **sistema de versionamento**,  que é capaz de guardar o histórico de alterações de todos os arquivos dentro de uma pasta, que chamamos de repositório.
+
+
+- Torna-se importante à medida que seu trabalho é __colaborativo__.
+
+- Git é um software que você instala no computador.
+
+
+&lt;img src="https://git-scm.com/images/logo@2x.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+
+## O que é GitHub?
+
+
+- GitHub é um site onde você coloca e compartilha repositórios Git.
+
+- Utilizado por milhões de pessoas em projetos de código aberto ou fechado.
+
+- Útil para colaborar com outras pessoas programadoras em projetos de ciência de dados.
+
+- Existem alternativas, como [GitLab](https://about.gitlab.com/) e [BitBucket](https://bitbucket.org/product).
+
+- GitHub é um site que você acessa na internet.
+
+- [GitHub percente à Microsoft desde 2018](https://g1.globo.com/economia/tecnologia/noticia/microsoft-compra-github-por-us-75-bilhoes.ghtml).
+
+&lt;img src="img/github.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Usando Git e GitHub 
+
+- [Saiba como configurar o GitHub no RStudio nessa apresentação](https://beatrizmilz.com/talk/2021-git-e-github-gyn/)
+
+- O pacote [`usethis`](https://usethis.r-lib.org/) apresenta várias funções úteis.
+
+- Cada pacote deve estar vinculado à um projeto no RStudio `.RProj`, e também a um repositório no GitHub.
+
+- Lembre-se das funções:
+
+
+```r
+usethis::use_git() # para iniciar o versionamento do projeto com Git 
+# (a partir deste momento podemos chamar de repositório!)
+
+usethis::use_github() # para vincular esse repositório com o GitHub
+```
+
 
 ---
 name: gha
