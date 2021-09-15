@@ -12,6 +12,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9"
+      slideNumberFormat: "<a href='#sumario'>Sumário</a> - %current%/%total%" 
 ---
 
 
@@ -62,12 +63,13 @@ Professora na [Curso-R](https://curso-r.com/).
 ]
 
 ---
+name: sumario
 
-## Programação
+## Temas que falaremos hoje
 
 - [Pré-requisitos](#pre-requisitos)
 
-- [Revisão: GitHub](#revisao-github)
+- [Revisão sobre GitHub](#revisao-github)
 
 - [O que é integração contínua e GitHub Actions?](#gha)
 
@@ -78,7 +80,7 @@ Professora na [Curso-R](https://curso-r.com/).
   - [Executar a checagem de um pacote em R](#exemplo-check)
   - [Automatizar uma tarefa](#exemplo-automacao) 
 
-
+- [Referências](#referencias)
 
 ---
 class: middle
@@ -401,7 +403,9 @@ Diagrama feito utilizando o site [draw.io](https://draw.io).
 knitr::include_graphics("img/explicacao_trabalho.png")
 ```
 
-Diagrama feito por Beatriz Milz utilizando o site [draw.io](https://draw.io).
+Diagrama feito utilizando o site [draw.io](https://draw.io).
+
+
 ---
 ## Integração contínua com GitHub Actions (cont.)
 
@@ -414,15 +418,11 @@ Diagrama feito por Beatriz Milz utilizando o site [draw.io](https://draw.io).
 - O pacote {usethis} também pode nos ajudar nisso, com a função `usethis::use_github_action()`. 
 
 
-
-
-
 ---
 name: basico-pacotes
 class: middle, center, inverse
 
 ## Estrutura básica de um pacote em R
-
 
 
 ---
