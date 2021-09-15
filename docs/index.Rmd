@@ -174,6 +174,15 @@ install.packages(pacotes)
 - [Conta no GitHub criada](https://github.com/)
 
 ---
+class: middle, center
+
+## Resumo do pacote usethis
+
+```{r echo=FALSE, out.width="70%"}
+knitr::include_graphics("https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/usethis.png")
+```
+
+---
 name: revisao-github
 class: inverse, middle, center
 
@@ -410,12 +419,122 @@ Diagrama feito por Beatriz Milz utilizando o site [draw.io](https://draw.io).
 
 ---
 name: basico-pacotes
+class: middle, center, inverse
 
 ## Estrutura básica de um pacote em R
 
 
 
-.destaque[como criar a estrutura basica de pacote para usar gha - basico de pacotes necessario para iniciar um projeto com GHA- ex. usethis criar o pacote, documentar as dependencias, usar ::, estrutura de pastas:o que vai onde? devtools check - bea]
+---
+## Pacotes
+
+Um pacote do R é uma forma específica de organizar seus código, seguindo o protocolo descrito pela R Foundation:
+
+> _Pacotes são a unidade fundamental de código R reprodutível._
+> 
+> — Wickham & Bryan
+
+.pull-left[
+- Pacotes incluem: 
+  - Funções em R
+  - Documentação sobre como usá-las
+  - Testes
+  - Dados de exemplo
+]
+
+.pull-right[
+```{r echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/pacote.gif")
+```
+]
+
+
+---
+## Criando um pacote
+
+Para criar um pacote, usamos a função `usethis::create_package()`
+
+- Você deve passar um caminho como `~/Documents/meupacote` e uma nova pasta chamada `meupacote` será criada dentro da pasta `Documents`. Essa pasta será tanto um `Rproj` quanto um pacote, ambos chamados `meupacote`
+
+> - **Dica geral:** não adicione acentos, caracteres especiais e espaços no nome dos caminhos, arquivos, funções, pacotes, etc.
+
+```{r eval=FALSE}
+usethis::create_package("~/Documents/meupacote")
+```
+
+
+---
+## Estrutura básica do pacote
+
+Essa é a estrutura criada quando usamos a função `usethis::create_package()`:
+
+- `meupacote.Rproj`: este arquivo faz com que este diretório seja um projeto no RStudio (RStudio Project)
+
+
+- `DESCRIPTION`: define o nome, descrição, versão, licença, dependências e outras caracaterísticas do seu pacote
+
+- `R/`: aqui ficam as funções desenvolvidas em R
+
+- `.Rbuildignore`:  Lista arquivos que não devem ser incluídos ao compilar o pacote R a partir do código-fonte
+<!-- usethis::use_build_ignore("..") ajuda a adicionar arquivos no .Rbuildignore-->
+
+- `NAMESPACE`: Não devemos editar este arquivo manualmente. Ele declara as funções que o pacote exporta para uso externo e as funções externas que seu pacote importa de outros pacotes
+
+---
+## A pasta R/
+
+Dentro de um pacote, a pasta `R/` só pode ter arquivos R com funções.
+
+- Uma função é responsável por executar uma tarefa pequena, mas muito bem. Quando trabalhamos com funções, nossas operações ficam mais confiáveis.
+
+- A ideia da pasta `R/` é guardar em um local comum tudo aquilo que nós utilizamos como ferramenta interna para nossas análises, bem como aquilo que queremos que outras pessoas possam usar no futuro.
+
+- Podemos usar `usethis::use_r("nome-do-arquivo")` para que um arquivo seja criado antes começarmos a escrever uma função.
+
+- Assim que escrevermos/modificarmos alguma função, podemos carregá-las e testá-las manualmente com `devtools::load_all()`
+
+---
+## Dependências
+
+Quando lidamos com pacotes, a função `library()` não pode ser utilizada, e todas as funções devem ter seus pacotes de origem explicitamente referenciados pelo operador `::`.
+
+- `usethis::use_package()`: adiciona pacotes que foram instalados via CRAN
+  
+- `usethis::use_dev_package()`: adiciona pacotes que não foram instalados via CRAN
+  
+- `usethis::use_pipe()`: use quando você usa o pipe do magrittr.
+
+- Para escrever `dplyr::`, por exemplo, basta digitar `d`, `p`, `l` e apertar TAB uma vez. Com os `::`, as sugestões passarão a ser somente de funções daquele pacote.
+
+
+---
+
+## Etapas iniciais
+
+- Criar um pacote usando a função `usethis::create_package("~/caminho/ate/o/nomepacote")`
+
+- No arquivo DESCRIPTION, adicionar o nome de quem criou o pacote, além do título e descrição do pacote.
+
+- Adicionar uma licença com `usethis::use_**_licence()`
+
+- Versionar o projeto usando `usethis::use_git()`
+
+- Crie um repositório no GitHub onde esse pacote será versionado utilizando `usethis::use_github()`
+
+- Crie uma função com `usethis::use_r("nome-funcao")`
+
+---
+
+## Funções para repetir com frequência
+
+
+- `devtools::document()`: atualiza a documentação e o arquivo NAMESPACE
+
+- `devtools::load_all()`: carrega as funções do pacote, que ficam disponíveis para uso
+
+- `devtools::check()`: verifica se o pacote está funcionando. Ela carrega todo o código, gera toda a documentação e executa todos os testes, verificando em todo passo se tudo está funcionando como o esperado. Pode apresentar erros, avisos e notas. Leia as mensagens no console :) 
+
+
 
 
 ---
