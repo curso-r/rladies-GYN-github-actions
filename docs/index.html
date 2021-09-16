@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 # Introdução ao GitHub Actions
 ## Meetup R-Ladies Goiânia
 ### <img src = 'https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/67e5c/img/logo/cursor1-5.png' width = '30%'>
-### Setembro de 2021
+### setembro de 2021
 
 ---
 
@@ -36,8 +36,6 @@ Trabalha com web scraping, arrumação de dados, modelos preditivos, APIs, pacot
 
 ]
 
-
-
 .pull-right[
 ## &lt;a href='https://linktr.ee/beamilz'&gt; Beatriz Milz    📌&lt;/a&gt;
 
@@ -48,7 +46,6 @@ Doutoranda em Ciência Ambiental (PROCAM/IEE/USP) na Universidade de São Paulo.
 Co-organizadora da [R-Ladies São Paulo](https://www.meetup.com/R-Ladies-Sao-Paulo/). Instrutora de tidyverse [certificada pela RStudio](https://education.rstudio.com/trainers/people/milz+beatriz/).
 Professora na [Curso-R](https://curso-r.com/).
 
-
 ]
 
 ---
@@ -58,11 +55,11 @@ name: sumario
 
 - [Pré-requisitos](#pre-requisitos)
 
-- [Revisão sobre GitHub](#revisao-github)
+- [Estrutura básica de um pacote em R](#basico-pacotes)
+
+- [Revisão sobre Git e GitHub](#revisao-github)
 
 - [O que é integração contínua e GitHub Actions?](#gha)
-
-- [Estrutura básica de um pacote em R](#basico-pacotes)
 
 - [Exemplos usando GitHub Actions para:](#exemplos)
 
@@ -82,6 +79,9 @@ class: middle
 
 #### É a coisa mais útil/interessante que eu (Bea) aprendi nos últimos meses 🚀
 
+--
+
+#### Desde que aprendi eu (Julio) uso em quase todos os projetos 🤖
 
 ---
 
@@ -92,15 +92,10 @@ class: middle
 
 #### Git e GitHub &lt;i class="fab fa-github"&gt;&lt;/i&gt;
 
-
-
 #### Pacotes em R 📦
 
-
-
 #### Testes unitários &lt;i class="fas fa-mitten"&gt;&lt;/i&gt; *
-.footnote[*(caso queira executar os testes, e fazer a avaliação da cobertura dos mesmos)]
-
+.footnote[*(caso queira executar os testes, e fazer a avaliação da cobertura)]
 
 - [Nos slides finais](#referencias), tem referências de cada um destes assuntos! 📚
 
@@ -113,7 +108,7 @@ class: middle
 
 - Atividade expositiva
 
-- [Material do curso de Pacotes](https://curso-r.github.io/main-pacotes/slides/index.html), da [Curso-R](https://curso-r.com/)
+- [Material do curso de Pacotes](https://curso-r.github.io/main-pacotes/slides/index.html) da [Curso-R](https://curso-r.com/)
 
 
 - [Material sobre como usar Git e GitHub no RStudio](https://beatrizmilz.com/talk/2021-git-e-github-gyn/)
@@ -124,7 +119,7 @@ class: middle
 ---
 name: pre-requisitos
 
-## Pré-requisitos
+## Pré-requisitos para criar pacotes
 
 
 - [R](https://livro.curso-r.com/1-1-instalacao-do-r.html) e [RStudio](https://livro.curso-r.com/1-1-instalacao-do-r.html) instalados
@@ -149,7 +144,6 @@ devtools::has_devel()
 ---
 ## Pré-requisitos
 
-
 - [Pacotes necessários instalados](https://github.com/curso-r/main-pacotes#pacotes-necess%C3%A1rios)
 
 
@@ -168,237 +162,6 @@ install.packages(pacotes)
 - [Git instalado](https://git-scm.com/)
 
 - [Conta no GitHub criada](https://github.com/)
-
----
-class: middle, center
-
-## Resumo do pacote usethis
-
-&lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/usethis.png" width="70%" style="display: block; margin: auto;" /&gt;
-
----
-name: revisao-github
-class: inverse, middle, center
-
-## Revisão sobre Git e GitHub
-
-&lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="img/meme-git.png" alt="Fonte: &amp;lt;a href='https://www.instagram.com/p/CTxBAC0rv3Z/'&amp;gt;Faxineiro de Dados&amp;lt;/a&amp;gt;" width="40%" /&gt;
-&lt;p class="caption"&gt;Fonte: &lt;a href='https://www.instagram.com/p/CTxBAC0rv3Z/'&gt;Faxineiro de Dados&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-
-
----
-
-## O que é Git?
-
-- Git é um **sistema de versionamento**,  que é capaz de guardar o histórico de alterações de todos os arquivos dentro de uma pasta, que chamamos de repositório.
-
-
-- Torna-se importante à medida que seu trabalho é __colaborativo__.
-
-- Git é um software que você instala no computador.
-
-
-&lt;img src="https://git-scm.com/images/logo@2x.png" width="30%" style="display: block; margin: auto;" /&gt;
-
-
-
----
-
-## O que é GitHub?
-
-
-- GitHub é um site onde você coloca e compartilha repositórios Git.
-
-- Utilizado por milhões de pessoas em projetos de código aberto ou fechado.
-
-- Útil para colaborar com outras pessoas programadoras em projetos de ciência de dados.
-
-- Existem alternativas, como [GitLab](https://about.gitlab.com/) e [BitBucket](https://bitbucket.org/product).
-
-- GitHub é um site que você acessa na internet.
-
-- [GitHub percente à Microsoft desde 2018](https://g1.globo.com/economia/tecnologia/noticia/microsoft-compra-github-por-us-75-bilhoes.ghtml).
-
-&lt;img src="img/github.png" width="30%" style="display: block; margin: auto;" /&gt;
-
----
-
-## Usando Git e GitHub 
-
-- [Saiba como configurar o GitHub no RStudio nessa apresentação](https://beatrizmilz.com/talk/2021-git-e-github-gyn/)
-
-- O pacote [`usethis`](https://usethis.r-lib.org/) apresenta várias funções úteis.
-
-- Cada pacote deve estar vinculado à um projeto no RStudio `.RProj`, e também a um repositório no GitHub.
-
-- Lembre-se das funções:
-
-
-```r
-usethis::use_git() # para iniciar o versionamento do projeto com Git 
-# (a partir deste momento podemos chamar de repositório!)
-
-usethis::use_github() # para vincular esse repositório com o GitHub
-```
-
-
----
-name: gha
-class: middle, center, inverse
-## O que é integração contínua e GitHub Actions?
-
----
-## Integração contínua
-
-- Dado um certo código e um método consistente de testá-lo, faz todo sentido
-**automatizar** o processo
-
-- Integração contínua normalmente envolve garantir que a versão mais
-recente do software está atendendo os padrões de qualidade
-
-- Hoje vamos falar sobre o **GitHub Actions** porque ele se conecta facilmente
-com o GitHub
-
-
-
----
-## Integração contínua
-
-.pull-left[
-Alguns exemplos: 
-
-- Vários pacotes usam para fazer executar o check e testes: [{readr}](https://github.com/tidyverse/readr/tree/master/.github/workflows), [{dplyr}](https://github.com/tidyverse/dplyr/tree/master/.github/workflows), [{usethis}](https://github.com/r-lib/usethis/tree/master/.github/workflows), e muitos outros
-
-- Pacote [{mananciais}](https://beatrizmilz.github.io/mananciais/) - atualiza diariamente a base de dados 
-
-- Página [Materiais sobre R](https://materiais-estudo-r.netlify.app/) - atualiza o site sempre que há mudança na base de dados
-
-.destaque[Acho que podemos colocar mais exemplos aqui!]
-
-]
-
-.pull-right[
-
-&lt;br&gt;&lt;br&gt;
-
-&lt;img src="https://avatars.githubusercontent.com/u/44036562?s=200&amp;v=4" style="display: block; margin: auto;" /&gt;
-
-]
-
----
-## GitHub Actions
-
-&gt; GitHub Actions ajuda a automatizar tarefas dentro de seu ciclo de vida de
-desenvolvimento de software https://docs.github.com/pt/actions
-
-- Um **workflow** é processo bem-definido que será executado no
-repositório ao qual ele pertence
-
-- Ele é definido a partir de um arquivo YAML dentro da pasta `.github/workflows`
-
-  - É comum definir workflows para testagem de pacotes, geração de documentação, 
-  atualização de dados, etc.
-  
-- O workflow é, essencialmente, um duende mágico que baixa o nosso repositório
-em um **servidor do GitHub** e executa os comandos especificados
-
-  - O plano gratuito já funciona para bastante coisa, mas cuidado com os
-  **custos** das máquinas MacOS
-
----
-## Estrutura
-
-- Um workflow tem alguns componentes importantes:
-
-  - **Event**: gatilhos que ativam o workflow, podendo ser um push no repositório, um horário/dia definido
-  
-  - **Job**: sequências completas de comandos que podem ser executadas paralelamente entre si
-  
-  - **Step**: uma tarefa dentro de um job, composta por ações
-      
-      - **Use**: passos importados de outro repositório (úteis para setup)
-  
-  - **Action**: o átomo do workflow, um comando a ser executado pelo "duende mágico"
-  
-- Também é comum definir **env**, variáveis de ambiente para o workflow
-
-.destaque[será que falar de todos esses conceitos agora não é too much? to pensando em tirar esse slide, pq os mais importantes são explicados depois]
----
-
-## Fluxos de trabalho (workflows)
-
-&lt;!-- - Os arquivos .yaml que armazenam informações os fluxos de trabalho, onde estão descritos os eventos e trabalhos. --&gt;
-
-&lt;img src="img/explicacao_workflows.png" width="45%" style="display: block; margin: auto;" /&gt;
-
-Diagrama feito utilizando o site [draw.io](https://draw.io)  e [Carbon](https://carbon.now.sh/). Código de [r-lib/actions](https://github.com/r-lib/actions/tree/master/examples#quickstart-ci-workflow).
-
-???
-
- Os arquivos .yaml armazenam informações os fluxos de trabalho, onde estão descritos os eventos e trabalhos. 
-
-
-
-
-
----
-## Integração contínua com GitHub Actions
-
-Para utilizar o GitHub Actions, usamos arquivos `.yaml` que armazenam informações os fluxos de trabalho.
-
-- **Eventos**: Um evento é uma atividade que aciona um fluxo de trabalho. Por exemplo:
-  
-  - Quando o repositório recebe uma alteração (`on: push`)
-  
-  - Quando um Pull Request é criado (em outras palavras, alguém está enviando uma contribuição para o repositório) (`on: pull_request`)
-  
-  - Eventos programados. Ex: a cada hora, todos os dias, uma vez por semana, uma vez por mês, etc. O site [CronTab](https://crontab.guru/) é muito útil para isso.
-  
-
----
-
-
-## Eventos: Um evento é uma atividade que aciona um fluxo de trabalho. 
-
-&lt;img src="img/explicacao_eventos.png" width="55%" style="display: block; margin: auto;" /&gt;
-
-Diagrama feito utilizando o site [draw.io](https://draw.io).
-  
----
-## Integração contínua com GitHub Actions
-
-- **Trabalho**: Um evento aciona automaticamente o fluxo de trabalho, que contém um trabalho. Em seguida, o trabalho usa etapas para controlar a ordem em que as ações são executadas. Exemplo de ações executadas:
-  
-  - Executar testes
-  
-  - Executar um script `.R`
-      - Atualizar um relatório `.Rmd`
-      - Checar um pacote
-      - Entre outros
-
----
-
-## Trabalho: O trabalho usa etapas para controlar a ordem em que as ações são executadas
-
-&lt;img src="img/explicacao_trabalho.png" width="60%" style="display: block; margin: auto;" /&gt;
-
-Diagrama feito utilizando o site [draw.io](https://draw.io).
-
-
----
-## Integração contínua com GitHub Actions (cont.)
-
-- Recomendação: partir de um arquivo de workflow já existente, e alterar o que for necessário. 
-
-  - [Neste repositório](https://github.com/r-lib/actions/tree/master/examples#readme), estão disponíveis alguns exemplos de workflows de GitHub Actions que podemos usar com pacotes em R
-
-- Os arquivos `.yaml` devem estar em um diretório específico do pacote:  `pacote/.github/workflows/nome-do-workflow.yaml`
-
-- O pacote {usethis} também pode nos ajudar nisso, com a função `usethis::use_github_action()`. 
-
 
 ---
 name: basico-pacotes
@@ -428,6 +191,12 @@ Um pacote do R é uma forma específica de organizar seus código, seguindo o pr
 &lt;img src="img/pacote.gif" style="display: block; margin: auto;" /&gt;
 ]
 
+---
+class: middle, center
+
+## A ferramenta da produtividade: usethis
+
+&lt;img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/usethis.png" width="70%" style="display: block; margin: auto;" /&gt;
 
 ---
 ## Criando um pacote
@@ -515,20 +284,225 @@ Quando lidamos com pacotes, a função `library()` não pode ser utilizada, e to
 
 - `devtools::check()`: verifica se o pacote está funcionando. Ela carrega todo o código, gera toda a documentação e executa todos os testes, verificando em todo passo se tudo está funcionando como o esperado. Pode apresentar erros, avisos e notas. Leia as mensagens no console :) 
 
+---
+
+# Vamos criar um pacote no R!
+
+&lt;img src="img/cat.gif" style="display: block; margin: auto;" /&gt;
 
 
+---
+name: revisao-github
+class: inverse, middle, center
+
+## Revisão sobre Git e GitHub
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="img/meme-git.png" alt="Fonte: &amp;lt;a href='https://www.instagram.com/p/CTxBAC0rv3Z/'&amp;gt;Faxineiro de Dados&amp;lt;/a&amp;gt;" width="40%" /&gt;
+&lt;p class="caption"&gt;Fonte: &lt;a href='https://www.instagram.com/p/CTxBAC0rv3Z/'&gt;Faxineiro de Dados&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+## O que é Git?
+
+- Git é um **sistema de versionamento**,  que é capaz de guardar o histórico de alterações de todos os arquivos dentro de uma pasta, que chamamos de repositório.
+
+
+- Torna-se importante à medida que seu trabalho é __colaborativo__.
+
+- Git é um software que você instala no computador.
+
+
+&lt;img src="https://git-scm.com/images/logo@2x.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## O que é GitHub?
+
+
+- GitHub é um site para compartilhar repositórios Git.
+
+- Utilizado por milhões de pessoas em projetos de código aberto ou fechado.
+
+- Útil para colaborar com outras pessoas programadoras em projetos de ciência de dados.
+
+- Existem alternativas, como [GitLab](https://about.gitlab.com/) e [BitBucket](https://bitbucket.org/product).
+
+- GitHub é um site que você acessa na internet.
+
+- [GitHub percente à Microsoft desde 2018](https://g1.globo.com/economia/tecnologia/noticia/microsoft-compra-github-por-us-75-bilhoes.ghtml).
+
+&lt;img src="img/github.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Usando Git e GitHub 
+
+- [Saiba como configurar o GitHub no RStudio nessa apresentação](https://beatrizmilz.com/talk/2021-git-e-github-gyn/)
+
+- O pacote [`usethis`](https://usethis.r-lib.org/) apresenta várias funções úteis.
+
+- Cada pacote deve estar vinculado à um projeto no RStudio `.RProj`, e também a um repositório no GitHub.
+
+- Lembre-se das funções:
+
+
+```r
+usethis::use_git() # para iniciar o versionamento do projeto com Git 
+# (a partir deste momento podemos chamar de repositório!)
+
+usethis::use_github() # para vincular esse repositório com o GitHub
+```
+
+---
+
+# Vamos colocar nosso pacote no GitHub!
+
+&lt;img src="img/cat.gif" style="display: block; margin: auto;" /&gt;
+
+---
+name: gha
+class: middle, center, inverse
+## O que é integração contínua e GitHub Actions?
+
+---
+## Integração contínua
+
+- Dado um certo código e um método consistente de testá-lo, faz todo sentido
+**automatizar** o processo
+
+- Integração contínua normalmente envolve garantir que a versão mais
+recente do software está atendendo os padrões de qualidade.
+    
+- Serve para responder perguntas do tipo:
+  - O seu código funciona em máquinas diferentes?
+  - Uma mudança no código quebrou alguma coisa?
+
+- Existem algumas alternativas, como [Circle](https://circleci.com), [Travis](https://travis-ci.org) e [AppVeyor](https://appveyor.com). 
+
+- Hoje vamos falar sobre o **GitHub Actions** porque ele se conecta facilmente
+com o GitHub
+
+---
+## Integração contínua
+
+.pull-left[
+
+- Vários pacotes usam para fazer executar o check e testes: [{readr}](https://github.com/tidyverse/readr/tree/master/.github/workflows), [{dplyr}](https://github.com/tidyverse/dplyr/tree/master/.github/workflows), [{usethis}](https://github.com/r-lib/usethis/tree/master/.github/workflows), e muitos outros
+
+- Pacote [{mananciais}](https://beatrizmilz.github.io/mananciais/) - atualiza diariamente a base de dados 
+
+- Página [Materiais sobre R](https://materiais-estudo-r.netlify.app/) - atualiza o site sempre que há mudança na base de dados
+
+- Os pacotes mais bem feitos da Curso-R também utilizam: [{chess}](https://github.com/curso-r/chess) e [{stockfish}](https://github.com/curso-r/stockfish)
+
+]
+
+.pull-right[
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;img src="https://avatars.githubusercontent.com/u/44036562?s=200&amp;v=4" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+## GitHub Actions
+
+&gt; GitHub Actions ajuda a automatizar tarefas dentro de seu ciclo de vida de
+desenvolvimento de software https://docs.github.com/pt/actions
+
+- Um **workflow** é processo bem-definido que será executado no
+repositório ao qual ele pertence
+
+- Ele é definido a partir de um arquivo YAML dentro da pasta `.github/workflows`
+
+  - É comum definir workflows para testagem de pacotes, geração de documentação, 
+  atualização de dados, etc.
+  
+- O workflow é, essencialmente, um duende mágico que baixa o nosso repositório
+em um **servidor do GitHub** e executa os comandos especificados
+
+  - O plano gratuito já funciona para bastante coisa, mas cuidado com os
+  **custos** das máquinas MacOS
+
+---
+
+## Fluxos de trabalho (workflows)
+
+&lt;!-- - Os arquivos .yaml que armazenam informações os fluxos de trabalho, onde estão descritos os eventos e trabalhos. --&gt;
+
+&lt;img src="img/explicacao_workflows.png" width="45%" style="display: block; margin: auto;" /&gt;
+
+Diagrama feito utilizando o site [draw.io](https://draw.io)  e [Carbon](https://carbon.now.sh/). Código de [r-lib/actions](https://github.com/r-lib/actions/tree/master/examples#quickstart-ci-workflow).
+
+???
+
+Os arquivos .yaml armazenam informações os fluxos de trabalho, onde estão descritos os eventos e trabalhos. 
+
+---
+## Integração contínua com GitHub Actions
+
+Para utilizar o GitHub Actions, usamos arquivos `.yaml` que armazenam informações os fluxos de trabalho.
+
+- **Eventos**: Um evento é uma atividade que aciona um fluxo de trabalho. Por exemplo:
+  
+  - Quando o repositório recebe uma alteração (`on: push`)
+  
+  - Quando um Pull Request é criado (em outras palavras, alguém está enviando uma contribuição para o repositório) (`on: pull_request`)
+  
+  - Eventos programados. Ex: a cada hora, todos os dias, uma vez por semana, uma vez por mês, etc. O site [CronTab](https://crontab.guru/) é muito útil para isso.
+  
+---
+
+## Eventos: Um evento é uma atividade que aciona um fluxo de trabalho. 
+
+&lt;img src="img/explicacao_eventos.png" width="55%" style="display: block; margin: auto;" /&gt;
+
+Diagrama feito utilizando o site [draw.io](https://draw.io).
+  
+---
+## Integração contínua com GitHub Actions
+
+- **Trabalho**: Um evento aciona automaticamente o fluxo de trabalho, que contém um trabalho. Em seguida, o trabalho usa etapas para controlar a ordem em que as ações são executadas. Exemplo de ações executadas:
+  
+  - Executar testes
+  
+  - Executar um script `.R`
+      - Atualizar um relatório `.Rmd`
+      - Checar um pacote
+      - Entre outros
+
+---
+
+## Trabalho: O trabalho usa etapas para controlar a ordem em que as ações são executadas
+
+&lt;img src="img/explicacao_trabalho.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+Diagrama feito utilizando o site [draw.io](https://draw.io).
+
+---
+## Integração contínua com GitHub Actions (cont.)
+
+- Recomendação: partir de um arquivo de workflow já existente, e alterar o que for necessário. 
+
+  - [Neste repositório](https://github.com/r-lib/actions/tree/master/examples#readme), estão disponíveis alguns exemplos de workflows de GitHub Actions que podemos usar com pacotes em R
+
+- Os arquivos `.yaml` devem estar em um diretório específico do pacote:  `pacote/.github/workflows/nome-do-workflow.yaml`
+
+- O pacote {usethis} também pode nos ajudar nisso, com a função `usethis::use_github_action()`. 
 
 ---
 name: exemplos
 class: inverse, middle, center
 
-## Exemplos
+# Exemplos
 
 ---
 name: exemplo-check
 
 ## Executar a checagem de um pacote em R 
-
 
 - O pacote {usethis} pode nos ajudar nisso. A função abaixo irá configurar utilizando o código disponível no  [r-lib/actions](https://github.com/r-lib/actions/tree/master/examples#example-workflows), usado para fazer uma checagem simples no pacote:
 
@@ -536,7 +510,6 @@ name: exemplo-check
 ```r
 usethis::use_github_action("check-release")
 ```
-
 
 - Evento: 
   - Sempre que houver um novo push no repositório
@@ -549,12 +522,11 @@ name: exemplo-automacao
 
 ## Automatizar uma tarefa
 
-.destaque[
-- Comentários Bea: acho legal a gente partir de um exemplo do repositório do r-lib e construir a partir daí. Sugestão de exemplo: https://github.com/r-lib/actions/tree/master/examples#render-rmarkdown porém alterar também o `on: ` para ser atualizado em datas específicas.
+- Podemos copiar de exemplos que já existem.
 
-- Ideia parte 2: no exemplo anterior eu crio a estrutura de pacote, e mostro como criar um actions para fazer 'check'. Você pode pegar desse ponto e implementar um actions para atualizar um Rmd.
-]
+- Vamos criar uma tarefa que roda a cada 5 minutos.
 
+- Não quer esperar os pacotes instalarem toda vez? Vamos usar [`{renv}`](https://rstudio.github.io/renv/articles/renv.html)!
 
 ---
 name: referencias
@@ -598,7 +570,6 @@ O chakra vem da biblioteca javascript [remark.js](https://remarkjs.com), e os pa
 
 ]
  
- 
 &lt;!-- inicio font awesome --&gt;
 &lt;script src="https://kit.fontawesome.com/1f72d6921a.js" crossorigin="anonymous"&gt;&lt;/script&gt;
 
@@ -612,7 +583,7 @@ O chakra vem da biblioteca javascript [remark.js](https://remarkjs.com), e os pa
 "highlightLines": true,
 "countIncrementalSlides": false,
 "ratio": "16:9",
-"slideNumberFormat": "<a href='#sumario'>Sumário</a> - %current%/%total%"
+"slideNumberFormat": "<a href='#sumario'>Guia</a> - %current%/%total%"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
