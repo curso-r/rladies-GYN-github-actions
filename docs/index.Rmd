@@ -66,6 +66,8 @@ name: sumario
 
 - [Pré-requisitos](#pre-requisitos)
 
+- [Projetos no RStudio (ou `.RProj`)](#projetos-rstudio)
+
 - [Estrutura básica de um pacote em R](#basico-pacotes)
 
 - [Revisão sobre Git e GitHub](#revisao-github)
@@ -170,6 +172,60 @@ install.packages(pacotes)
 - [Conta no GitHub criada](https://github.com/)
 
 ---
+class: middle, center
+
+## A ferramenta da produtividade: usethis
+
+```{r echo=FALSE, out.width="70%"}
+knitr::include_graphics("https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/usethis.png")
+```
+
+
+---
+name: projetos-rstudio
+class: middle, center, inverse
+
+## Projetos no RStudio
+
+---
+## Projetos no RStudio
+
+Uma funcionalidade muito importante do RStudio é a possibilidade de criar **projetos**. 
+
+Um projeto é uma pasta no seu computador. Nessa pasta, estarão todos os arquivos que você usurá ou criará na sua análise. 
+
+A principal razão de utilizarmos projetos é **organização**. Com eles, fica muito mais fácil importar bases de dados para dentro do R, criar análises reprodutíveis e compartilhar o nosso trabalho.
+
+<br>
+
+> Habitue-se desde a cedo a criar um projeto para cada nova análise que for fazer.
+
+---
+
+### Criando um projeto no RStudio
+
+Para criar um projeto, clique em `New Project...` no Menu `File`. Na caixa de diálogo que aparecerá, clique em `New Directory` para criar o projeto em uma nova pasta ou `Existing Directory` para criar em uma pasta existente. 
+
+Se você tiver o `Git` instalado, você também pode usar projetos para conectar com repositórios do Github e outras plataformas de desenvolvimento. Para isso, basta clicar em `Version Control`.
+
+Criando um projeto, o RStudio criará na pasta escolhida um arquivo `nome-do-projeto.Rproj`. Você pode usar esse arquivo para iniciar o RStudio já com o respectivo projeto aberto.
+
+---
+### RStudio com um projeto aberto
+
+```{r echo=FALSE, fig.align='center', out.width="80%"}
+knitr::include_graphics(rep("img/exemplo-projeto-aberto.png"))
+```
+
+---
+### Navegando entre projetos
+
+```{r echo=FALSE, fig.align='center', out.width="80%"}
+knitr::include_graphics(rep("img/exemplo-lista-projetos.png"))
+```
+
+
+---
 name: basico-pacotes
 class: middle, center, inverse
 
@@ -199,14 +255,6 @@ knitr::include_graphics("img/pacote.gif")
 ```
 ]
 
----
-class: middle, center
-
-## A ferramenta da produtividade: usethis
-
-```{r echo=FALSE, out.width="70%"}
-knitr::include_graphics("https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/usethis.png")
-```
 
 ---
 ## Criando um pacote
